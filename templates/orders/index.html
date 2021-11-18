@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Керування корзиною{% endblock title%}
+
+{% block content %}
+{% load static %}
+
+
+
+<div id="cart-box">
+    <table  width="100%">
+        <thead>
+            <tr>
+                <th>Зображення</th>
+                <th>Назва</th>
+                <th>Продукт</th>
+                <th>Ціна</th>
+                <th>Вибір</th>
+                <th>Керування</th>
+            </tr>
+        </thead>
+        <tbobody>
+            {% for order in orders %}
+                <tr>
+                    <td>1</td>
+                    <td>{{ order.title }}</td>
+                    <td>{{ order.product.title }}</td>
+                    <td>{{ order.product.price }}</td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-success">Деталі</button>
+                            <button class="btn btn-sm btn-danger">Видалити</button>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbobody>
+    </table>
+</div>
+
+<style>
+    #cart-box {
+        border: 1px solid silver;
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: -30px;
+        box-shadow: 0px 10px 40px silver;
+    }
+    #cart-box table th,
+    #cart-box table td {
+        text-align: center;
+        padding: 5px;
+    }
+    #cart-box tr {
+        border-bottom: 1px solid silver;
+    }
+</style>
+
+
+{% endblock content %}
